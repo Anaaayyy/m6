@@ -34,7 +34,7 @@ namespace m6
             dbConnection.Open();
             string query = "SELECT * FROM table1";
             OleDbCommand dbCommand = new OleDbCommand(query, dbConnection);
-            OleDbDataReader dbReader = dbCommand.ExecuteReader();
+            OleDbDataReader dbReader = dbCommand.ExecuteReader();//считывание данных
 
             // Проверка данных
             if (dbReader.HasRows == false)
@@ -97,13 +97,13 @@ namespace m6
             }
 
             // Создаем соединение
-            string connectionString = "provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb";
+            string connectionString = "provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database.mdb";//строка соединения
             OleDbConnection dbConnection = new OleDbConnection(connectionString); // создаем соединение
 
             // Выполняем запрос к БД
             dbConnection.Open();
-            string query = "INSERT INTO table1 VALUES (" + id + ", '" + description + "', '" + d + "', '" + state + "')";
-            OleDbCommand dbCommand = new OleDbCommand(query, dbConnection);
+            string query = "INSERT INTO table1 VALUES (" + id + ", '" + description + "', '" + d + "', '" + state + "')";//строка запроса
+            OleDbCommand dbCommand = new OleDbCommand(query, dbConnection);//команда
 
             // Выполняем запрос
             if (dbCommand.ExecuteNonQuery() != 1)
